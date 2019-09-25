@@ -1,0 +1,20 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /StudySpringBoot
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://cdb-jwd16kdk.bj.tencentcdb.com:10069/wyxjava?useSSL=false
+    username: root
+    password: wyxjava123
+
+mybatis:
+  type-aliases-package: com.gsm.model
+  mapper-locations: classpath:com/gsm/dao/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+myMap:
+  mykey: myValue

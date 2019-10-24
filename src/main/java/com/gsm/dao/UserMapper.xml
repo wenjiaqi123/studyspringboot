@@ -7,4 +7,17 @@
         select t.id, user_name, user_age
         from user t
     </select>
+
+    <insert id="insertUser">
+        insert into sys_user
+        (iphone_no)
+        values
+        (15251922665)
+    </insert>
+
+    <update id="updateUser">
+        update sys_user
+        set user_name = 'aaa'
+        where id = 8
+    </update>
 </mapper>

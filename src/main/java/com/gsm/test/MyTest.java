@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = StudyspringbootApplication.class)
 public class MyTest {
-
     @Test
     public void test(){
 

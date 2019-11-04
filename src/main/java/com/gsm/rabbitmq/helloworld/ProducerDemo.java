@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
  * 生产者
  */
 public class ProducerDemo {
-
+    //队列名称
     private static final String QUEUQ = "QueueName";
 
     public static void main(String[] args) throws IOException, TimeoutException {

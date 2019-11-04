@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
  * 消费者
  */
 public class ConsumerDemo {
-
+    //队列名称
     private static final String QUEUE = "QueueName";
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();

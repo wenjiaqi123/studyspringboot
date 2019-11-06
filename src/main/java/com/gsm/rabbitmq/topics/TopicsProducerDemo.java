@@ -1,4 +1,4 @@
-package com.gsm.rabbitmq.routing;
+package com.gsm.rabbitmq.topics;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
@@ -9,19 +9,19 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Routing 工作模式 生产者
+ * Topics 工作模式 生产者
  */
-public class RoutingProducerDemo {
+public class TopicsProducerDemo {
     //交换机名称
-    public static final String EXCHANGE_NAME = "exchangeNameRouting";
+    public static final String EXCHANGE_NAME = "exchangeNameTopics";
     //短信队列名称
-    private static final String QUEUE_MESSAGE = "messageQueueRouting";
+    private static final String QUEUE_NAME_MESSAGE = "queueNameMessage";
     //邮件队列名称
-    private static final String QUEUE_EMAIL = "emailQueueRouting";
+    private static final String QUEUE_NAME_EMAIL = "queueNameEmail";
     //RoutingKey 短信
-    private static final String ROUTING_KEY_MESSAGE = "message";
+    private static final String ROUTING_KEY_MESSAGE = "key.#.message.#";
     //RoutingKey 邮件
-    private static final String ROUTING_KEY_EMAIL = "email";
+    private static final String ROUTING_KEY_EMAIL = "key.#.email.#";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         //创建连接工厂
@@ -40,27 +40,33 @@ public class RoutingProducerDemo {
         /**
          * 声明交换机
          */
-        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
 
         /**
          * 声明队列
          */
-        channel.queueDeclare(QUEUE_MESSAGE,true,false,false,null);
-        channel.queueDeclare(QUEUE_EMAIL,true,false,false,null);
+        channel.queueDeclare(QUEUE_NAME_MESSAGE,true,false,false,null);
+        channel.queueDeclare(QUEUE_NAME_EMAIL,true,false,false,null);
 
         /**
          * 队列和交换机绑定
          * (队列名称,交换机名称,key)
          */
-        channel.queueBind(QUEUE_MESSAGE,EXCHANGE_NAME,ROUTING_KEY_MESSAGE);
-        channel.queueBind(QUEUE_EMAIL,EXCHANGE_NAME,ROUTING_KEY_EMAIL);
+        channel.queueBind(QUEUE_NAME_MESSAGE,EXCHANGE_NAME,ROUTING_KEY_MESSAGE);
+        channel.queueBind(QUEUE_NAME_EMAIL,EXCHANGE_NAME,ROUTING_KEY_EMAIL);
 
         //-------------上面是准备工作,我是华丽丽的分割线----------------
 
         String msg = "其实消息队列也很简单的嘛\t" + System.currentTimeMillis();
 
         //TODO 切换RoutingKey名称 ROUTING_KEY_MESSAGE
-        channel.basicPublish(EXCHANGE_NAME,ROUTING_KEY_MESSAGE,null,msg.getBytes());
+        /**
+         * key.email 发送给 email 队列
+         * key.message 发送给 message 队列
+         * key.email.message 都能发送
+         * key.message.email 都能发送
+         */
+        channel.basicPublish(EXCHANGE_NAME,"key.message.email",null,msg.getBytes());
         System.out.println("msg = " + msg);
     }
 }

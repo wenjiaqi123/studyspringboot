@@ -61,10 +61,12 @@ public class TopicsProducerDemo {
 
         //TODO 切换RoutingKey名称 ROUTING_KEY_MESSAGE
         /**
-         * key.email 发送给 email 队列
-         * key.message 发送给 message 队列
-         * key.email.message 都能发送
-         * key.message.email 都能发送
+         * key.#.email.#
+         * key.#.message.#
+         * key.email            发送给 email 队列
+         * key.message          发送给 message 队列
+         * key.email.message    都能发送
+         * key.message.email    都能发送
          */
         channel.basicPublish(EXCHANGE_NAME,"key.message.email",null,msg.getBytes());
         System.out.println("msg = " + msg);

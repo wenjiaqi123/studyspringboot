@@ -3,9 +3,8 @@ package com.gsm.rabbitmq;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class RabbitmqConfig {
     //队列名称 email
     public static final String QUEUE_NAME_EMAIL = "queueNameEmail";

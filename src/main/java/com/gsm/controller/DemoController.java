@@ -7,18 +7,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @RestController = @Controller + @ResponseBody
+ */
 @RestController
 @RequestMapping("demo")
 public class DemoController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("selectUsers")
+    /**
+     * @GetMapping = @RequestMapping(method = RequestMethod.GET)
+     * @return
+     */
+    @GetMapping("selectUsers")
     public List<User> selectUsers(){
         return userService.selectUsers();
     }
 
-    @RequestMapping("insertUser")
+    @PostMapping("insertUser")
     public String insertUser(){
         userService.insertUser();
         return "ss";

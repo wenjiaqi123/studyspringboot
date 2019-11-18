@@ -13,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @Configuration 标识为配置类
  * @EnableSwagger2 启用Swagger
+ * http://localhost:8001/StudySpringBoot/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
@@ -28,7 +29,6 @@ public class SwaggerConfig {
                 .build();
         return docket;
     }
-
 
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfoBuilder()

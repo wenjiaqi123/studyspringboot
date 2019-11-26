@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = StudyspringbootApplication.class)
 public class MyTest {
     @Test
-    public void test(){
+    public void test() {
 
     }
 }

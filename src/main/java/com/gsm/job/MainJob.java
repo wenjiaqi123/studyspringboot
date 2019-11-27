@@ -5,7 +5,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.Date;
-import java.util.SimpleTimeZone;
 
 //主要用于标记配置类，兼备Component的效果
 @Configuration
@@ -18,7 +17,7 @@ public class MainJob {
     /**
      * 添加定时任务，
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0 0 * * ?")
     public void myJob(){
         System.out.println(new Date());
     }

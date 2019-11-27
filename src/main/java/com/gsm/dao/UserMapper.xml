@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gsm.dao.UserDao">
     <select id="selectUsers" resultType="User">
-        select t.id, user_name, user_age
-        from user t
+        select t.id, user_name
+        from sys_user t
     </select>
 
     <insert id="insertUser">

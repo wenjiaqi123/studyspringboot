@@ -3,10 +3,7 @@ package com.gsm.controller;
 import com.gsm.model.User;
 import com.gsm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,8 +20,8 @@ public class DemoController {
      * @GetMapping = @RequestMapping(method = RequestMethod.GET)
      * @return
      */
-    @GetMapping("selectUsers")
-    public List<User> selectUsers(Integer id){
+    @GetMapping("selectUsers/{id}")
+    public List<User> selectUsers(@PathVariable("id") Integer id){
         return userService.selectUsers();
     }
 

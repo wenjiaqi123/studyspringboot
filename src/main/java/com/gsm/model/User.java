@@ -18,10 +18,10 @@ import lombok.*;
 @ApiModel("用户对象模型")
 public class User {
     @ApiModelProperty(value = "用户id")
-    private int id;
+    private Integer id;
     @ApiModelProperty(value = "用户名")
     private String userName;
     @ApiModelProperty(value = "用户年龄")
-    private int userAge;
+    private Integer userAge;
 
 }

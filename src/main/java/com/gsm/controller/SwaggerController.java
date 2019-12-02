@@ -75,11 +75,12 @@ public class SwaggerController {
     @ApiImplicitParam(paramType = "path",name = "id",value = "用户id",required = true,type = "int")
     @DeleteMapping("deleteUserById/{id}")
     public User deleteUserById(@PathVariable("id") Integer userId){
-        User user = User.builder()
+        /*User user = User.builder()
                 .id(userId)
                 .userName("闻家奇")
                 .userAge(18)
-                .build();
+                .build();*/
+        User user = new User();
         return user;
     }
 }

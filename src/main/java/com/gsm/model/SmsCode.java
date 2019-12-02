@@ -16,4 +16,6 @@ public class SmsCode {
     private BigInteger iphoneNo;
     @ApiModelProperty("手机短信验证码")
     private Integer smsCode;
+    @ApiModelProperty("阿里云短信模板json")
+    private String json;
 }

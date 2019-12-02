@@ -110,6 +110,14 @@
             <artifactId>hutool-all</artifactId>
             <version>5.0.5</version>
         </dependency>
+
+        <!--阿里云短信核心配置文件-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

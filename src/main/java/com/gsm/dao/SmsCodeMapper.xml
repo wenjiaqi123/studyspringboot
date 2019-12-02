@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsm.dao.SmsCodeDao">
+
+    <!--用户手机号和短信验证码-->
+    <insert id="insertUserIphoneNoAndSmsCode" parameterType="SmsCode">
+      insert into sms_code_tmp
+        (iphone_no, sms_code)
+        values
+        (#{iphoneNo},#{smsCode})
+        on duplicate key
+        update
+        sms_code = #{smsCode}
+    </insert>
+
+    <select id="getSmsCodeByIphoneNo" parameterType="SmsCode" resultType="Integer">
+        select t.sms_code as code
+        from sms_code_tmp t
+        where t.iphone_no = #{iphoneNo}
+        limit 1
+    </select>
+</mapper>

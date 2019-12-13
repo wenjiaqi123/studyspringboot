@@ -18,4 +18,6 @@ public class WebAppConfigurer implements WebMvcConfigurer {
          */
         ir.addPathPatterns("/**");
     }
+
+
 }

@@ -1,3 +1,5 @@
+# 注意 yml 配置文件的编码格式 UTF-8
+###########################################################################
 server:
   # 端口
   port: 8001
@@ -7,6 +9,14 @@ server:
     context-path: /StudySpringBoot
 ###########################################################################
 spring:
+  ################################################################
+  #上传文件配置
+  multipart:
+    #启用 http上传处理
+    enabled: true
+    #最大上传大小1G【默认1M】
+    max-file-size: 1GB
+  ################################################################
   # 数据源
   datasource:
     id: dataSource
@@ -19,6 +29,7 @@ spring:
     username: root
     # 数据库用户密码
     password: wyxjava123
+  ################################################################
   # rabbitmq 消息队列配置文件
   rabbitmq:
     # 消息队列主机 ip 地址
@@ -31,10 +42,35 @@ spring:
     password: guest
     # 虚拟机
     virtualHost: /
+  ################################################################
+  # redis 配置项
+  redis:
+    # 主机地址
+    host: 127.0.0.1
+    #端口
+    port: 6379
+    #Redis服务器连接密码（默认为空）
+    password:
+    #数据库索引
+    database: 0
+    #jedis
+    jedis:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        #连接池中的最大空闲连接
+        max-idle: 500
+        #连接池中的最小空闲连接
+        min-idle: 0
 ###########################################################################
 # mybatis 框架
 mybatis:
   # 别名包
+  # xxxDo  xxx=数据库表名        Dao 层向外传输数据
+  # xxxDto xxx=业务领域相关      Service 层向外传输数据
+  # xxxVo  xxx=网页名称         Web 层向外传输
   type-aliases-package: com.gsm.model
   # mapper文件位置
   mapper-locations: classpath:com/gsm/dao/*Mapper.xml
@@ -42,6 +78,10 @@ mybatis:
   configuration:
     # 数据库列名 user_name 映射pojo userName 格式转换
     map-underscore-to-camel-case: true
+# log日志等级,mybatis打印sql
+logging:
+  level:
+    com.gsm.dao: DEBUG
 ########################################################################
 # 分页插件 pagehelper
 pagehelper:

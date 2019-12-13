@@ -22,7 +22,8 @@ public class DemoController {
      */
     @GetMapping("selectUsers/{id}")
     public List<User> selectUsers(@PathVariable("id") Integer id){
-        return userService.selectUsers();
+        List<User> users = userService.selectUsers();
+        return users;
     }
 
     @PostMapping("insertUser")
@@ -30,7 +31,7 @@ public class DemoController {
         System.out.println("---------------");
         System.out.println(user.getUserName());
         userService.insertUser();
-        return "ss";
+        return "sss";
     }
 
 }

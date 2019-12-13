@@ -5,6 +5,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -18,6 +20,8 @@ import java.util.Map;
 @RequestMapping("swagger")
 @Api("用来测试 swagger")
 public class SwaggerController {
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * @ApiOperation() 使用在 方法 上，说明该 方法 的作用
@@ -31,7 +35,7 @@ public class SwaggerController {
         } else if (id == 2) {
             return "巧了。我也是你爸爸";
         }
-        return "你瞎几把传的啥";
+        return "sss";
     }
 
 

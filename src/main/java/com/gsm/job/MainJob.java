@@ -1,5 +1,6 @@
 package com.gsm.job;
 
+import com.gsm.websocket.WebSocketServer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,5 +21,7 @@ public class MainJob {
     @Scheduled(cron = "0 0 0 * * ?")
     public void myJob(){
         System.out.println(new Date());
+        System.out.println("--发送信息给客户端-");
+        WebSocketServer.sendInfoAll(new Date().toString(),"20");
     }
 }

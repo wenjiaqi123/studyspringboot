@@ -10,12 +10,13 @@ server:
 ###########################################################################
 spring:
   ################################################################
-  #上传文件配置
-  multipart:
-    #启用 http上传处理
-    enabled: true
-    #最大上传大小1G【默认1M】
-    max-file-size: 1GB
+  servlet:
+    #上传文件配置
+    multipart:
+      #启用 http上传处理
+      enabled: true
+      #最大上传大小1G【默认1M】
+      max-file-size: 1GB
   ################################################################
   # 数据源
   datasource:
@@ -24,7 +25,7 @@ spring:
     # 数据源驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库url
-    url: jdbc:mysql://cdb-jwd16kdk.bj.tencentcdb.com:10069/wyxjava?useSSL=false
+    url: jdbc:mysql://cdb-jwd16kdk.bj.tencentcdb.com:10069/wyxjava?autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
     # 数据库用户名
     username: root
     # 数据库用户密码

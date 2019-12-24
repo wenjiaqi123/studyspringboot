@@ -18,7 +18,7 @@ public class MainJob {
     /**
      * 添加定时任务，
      */
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(cron = "0 0/1 0 * * ?")
     public void myJob(){
         System.out.println(new Date());
         System.out.println("--发送信息给客户端-");

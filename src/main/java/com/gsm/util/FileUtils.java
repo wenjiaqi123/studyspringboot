@@ -24,6 +24,30 @@ public class FileUtils {
     }
 
     /**
+     * 校验文件是否存在
+     * @param file  文件的全路径名+文件名
+     * @return true存在
+     */
+    public static boolean checkFileIsExist(String file) {
+        File f = new File(file);
+        if(f.exists()){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * 校验文件是否存在
+     * @param file  文件的全路径名+文件名
+     * @return true存在
+     */
+    public static boolean checkFileIsExist(File file) {
+        if(file.exists()){
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 存储单个 MultipartFile 文件到 dir 目录下
      * 默认：文件名是 file 的文件名
      *
@@ -177,5 +201,12 @@ public class FileUtils {
     }
 
     public static void main(String[] args) {
+        File file = new File("D:\\output\\routeCross.txt");
+        boolean b = FileUtils.checkFileIsExist(file);
+        System.out.println(b);
+
+        File file1 = new File("D:\\output\\aa.txt");
+        boolean b1 = FileUtils.checkFileIsExist(file1);
+        System.out.println(b1);
     }
 }

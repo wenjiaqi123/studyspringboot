@@ -25,7 +25,7 @@ spring:
     # 数据源驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库url
-    url: jdbc:mysql://cdb-jwd16kdk.bj.tencentcdb.com:10069/wyxjava?autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://cdb-jwd16kdk.bj.tencentcdb.com:10069/wyxjava?autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
     # 数据库用户名
     username: root
     # 数据库用户密码

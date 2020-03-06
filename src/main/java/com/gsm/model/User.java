@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * @Data = set      get     equal   hashCode    toString
  * @AllArgsConstructor  构造器
@@ -16,7 +18,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ApiModel("用户对象模型")
-public class User {
+public class User implements Serializable {
     @ApiModelProperty(value = "用户id")
     private Integer id;
     @ApiModelProperty(value = "用户名")

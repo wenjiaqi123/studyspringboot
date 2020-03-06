@@ -34,4 +34,10 @@ public class DemoController {
         return "sss";
     }
 
+    @GetMapping("user/{id}")
+    public User selectUserById(@PathVariable("id") String id){
+        User user = userService.selectUserById(id);
+        return user;
+    }
+
 }

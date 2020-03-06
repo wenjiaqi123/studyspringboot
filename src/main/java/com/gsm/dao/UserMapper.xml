@@ -20,4 +20,10 @@
         set user_name = 'aaa'
         where id = 8
     </update>
+
+    <select id="selectUserById" parameterType="String" resultType="User">
+        select user_name
+        from sys_user t
+        where t.id = #{id}
+    </select>
 </mapper>

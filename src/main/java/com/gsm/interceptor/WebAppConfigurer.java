@@ -17,6 +17,7 @@ public class WebAppConfigurer implements WebMvcConfigurer {
          * 配置拦截规则
          */
         ir.addPathPatterns("/**");
+        ir.excludePathPatterns("/**/login/**");
     }
 
 
